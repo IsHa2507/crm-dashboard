@@ -93,7 +93,7 @@
   background: #c92d3a;
 }
 .crm-topbar {
-  height: 60px;
+  height: 80px;
   background: #fff;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
@@ -157,4 +157,57 @@
 
 .crm-checkin-btn:hover {
   background: #c92d3a;
+}
+.crm-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.crm-btn:hover {
+  background: #f9fafb;
+}
+
+.crm-btn.active {
+  border-color: #d0e0ff;
+  background: #f9fbff;
+}
+.crm-app {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.crm-app.whatsapp {
+  background: #25d366;
+}
+
+.crm-app.ai {
+  background: #007bff;
+}
+/* Profile */
+.crm-profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.crm-logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }
