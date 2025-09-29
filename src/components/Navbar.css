@@ -1,0 +1,108 @@
+/* === CRM Navbar Styles === */
+.crm-navbar {
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left Section */
+.crm-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.crm-menu-btn {
+  display: none; /* hidden on desktop, visible on mobile */
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: background 0.2s ease-in-out;
+}
+
+.crm-menu-btn:hover {
+  background: #f3f4f6;
+}
+
+.crm-logo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+}
+
+/* Search Bar */
+.crm-navbar-search {
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  border-radius: 1rem;
+  padding: 0.4rem 0.75rem;
+  width: 320px;
+}
+
+.crm-search-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #6b7280;
+  margin-right: 0.5rem;
+}
+
+.crm-search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* Actions */
+.crm-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.crm-icon-btn {
+  padding: 0.4rem;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.crm-icon-btn:hover {
+  background: #f3f4f6;
+}
+
+.crm-checkin-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.crm-checkin-btn:hover {
+  background: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .crm-menu-btn {
+    display: block;
+  }
+  .crm-navbar-search {
+    display: none;
+  }
+}
