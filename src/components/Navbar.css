@@ -92,3 +92,69 @@
 .crm-logout:hover {
   background: #c92d3a;
 }
+.crm-topbar {
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 250px; /* push right to make space for sidebar */
+  right: 0;
+  z-index: 900;
+}
+
+.crm-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #555;
+}
+
+.crm-search {
+  border: none;
+  outline: none;
+  padding: 6px 10px;
+  background: #f1f5f9;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.crm-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.crm-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.crm-icon-btn:hover {
+  background: #f3f4f6;
+}
+
+.crm-checkin-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.crm-checkin-btn:hover {
+  background: #c92d3a;
+}

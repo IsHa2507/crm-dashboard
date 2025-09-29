@@ -43,42 +43,66 @@ export default function Sidebar() {
           className="crm-sidebar-link"
           onClick={() => toggleMenu("ads")}
         >
-          <BarChart2 size={18} /> Ads Manager <ChevronRight size={16} className={`arrow ${activeMenu === "ads" ? "open" : ""}`} />
+          <BarChart2 size={18} /> Ads Manager
+          <ChevronRight
+            size={16}
+            className={`arrow ${activeMenu === "ads" ? "open" : ""}`}
+          />
         </button>
 
         <button
           className="crm-sidebar-link"
           onClick={() => toggleMenu("leads")}
         >
-          <Users size={18} /> Lead Manager <ChevronRight size={16} className={`arrow ${activeMenu === "leads" ? "open" : ""}`} />
+          <Users size={18} /> Lead Manager
+          <ChevronRight
+            size={16}
+            className={`arrow ${activeMenu === "leads" ? "open" : ""}`}
+          />
         </button>
 
         <button
           className="crm-sidebar-link"
           onClick={() => toggleMenu("automation")}
         >
-          <Settings size={18} /> Automation <ChevronRight size={16} className={`arrow ${activeMenu === "automation" ? "open" : ""}`} />
+          <Settings size={18} /> Automation
+          <ChevronRight
+            size={16}
+            className={`arrow ${activeMenu === "automation" ? "open" : ""}`}
+          />
         </button>
 
         <button
           className="crm-sidebar-link"
           onClick={() => toggleMenu("marketing")}
         >
-          <Mail size={18} /> Marketing <ChevronRight size={16} className={`arrow ${activeMenu === "marketing" ? "open" : ""}`} />
+          <Mail size={18} /> Marketing
+          <ChevronRight
+            size={16}
+            className={`arrow ${activeMenu === "marketing" ? "open" : ""}`}
+          />
         </button>
 
         <button
           className="crm-sidebar-link"
           onClick={() => toggleMenu("sms")}
         >
-          <MessageSquare size={18} /> SMS Marketing <ChevronRight size={16} className={`arrow ${activeMenu === "sms" ? "open" : ""}`} />
+          <MessageSquare size={18} /> SMS Marketing
+          <ChevronRight
+            size={16}
+            className={`arrow ${activeMenu === "sms" ? "open" : ""}`}
+          />
         </button>
 
         <button
           className="crm-sidebar-link"
           onClick={() => toggleMenu("ivr")}
         >
-          <Phone size={18} /> IVR Services <ChevronRight size={16} className={`arrow ${activeMenu === "ivr" ? "open" : ""}`} />
+          <Phone size={18} /> IVR Services
+          <ChevronRight
+            size={16}
+            className={`arrow ${activeMenu === "ivr" ? "open" : ""}`}
+          />
         </button>
 
         <Link to="/reports" className="crm-sidebar-link">
