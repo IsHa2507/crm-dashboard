@@ -1,5 +1,5 @@
 .crm-sidebar {
-  width: 250px;
+  width: 260px;
   background: #0b0f2c;
   color: #fff;
   height: 100vh;
@@ -8,6 +8,20 @@
   position: fixed;
   left: 0;
   top: 0;
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: transparent transparent;
+}
+
+/* Hide scrollbar (Chrome, Edge, Safari) */
+.crm-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.crm-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.crm-sidebar::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 
 .crm-sidebar-header {
@@ -44,9 +58,8 @@
 
 .crm-sidebar-link {
   display: flex;
-   justify-content: flex-start;  
   align-items: center;
-  gap: 12px;
+  justify-content: space-between; /* pushes arrow to right */
   padding: 12px 20px;
   text-decoration: none;
   color: #ddd;
@@ -54,11 +67,19 @@
   background: none;
   border: none;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
+  /* width: 100%; */
+
+  text-align: left;
 }
 
-.crm-sidebar-link svg {
-  flex-shrink: 0;
+.crm-sidebar-link svg:first-child {
+  margin-right: 12px; /* space between icon and text */
+}
+
+.crm-sidebar-link span {
+  flex: 1; /* ensures text stays left */
+  text-align: left;
 }
 
 .crm-sidebar-link:hover {
@@ -67,11 +88,31 @@
 }
 
 .arrow {
+  margin-left: auto; /* ensures arrow stays at extreme right */
   transition: transform 0.2s;
 }
 
 .arrow.open {
   transform: rotate(90deg);
+}
+
+.crm-sidebar-dropdown {
+  display: flex;
+  flex-direction: column;
+  padding-left: 52px; /* aligns sublinks neatly */
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.crm-sidebar-dropdown a {
+  padding: 8px 0;
+  font-size: 13px;
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.2s;
+}
+
+.crm-sidebar-dropdown a:hover {
+  color: #fff;
 }
 
 .crm-sidebar-footer {
@@ -87,11 +128,17 @@
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
 }
 
 .crm-logout:hover {
   background: #c92d3a;
 }
+
+
 .crm-topbar {
   height: 80px;
   background: #fff;
