@@ -1,5 +1,5 @@
 .crm-sidebar {
-  width: 260px;
+  width: 240px;
   background: #0b0f2c;
   color: #fff;
   height: 100vh;
@@ -29,7 +29,7 @@
   align-items: center;
   gap: 10px;
   padding: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .crm-sidebar-logo-img {
@@ -69,7 +69,7 @@
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   /* width: 100%; */
-
+  
   text-align: left;
 }
 
@@ -140,25 +140,24 @@
 
 
 .crm-topbar {
-  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 240px; /* same as sidebar width */
+  right: 0;
+  height: 60px;
   background: #fff;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 0 20px;
-  position: fixed;
-  top: 0;
-  left: 250px; /* push right to make space for sidebar */
-  right: 0;
-  z-index: 900;
+  z-index: 1000;
 }
 
 .crm-topbar-left {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #555;
 }
 
 .crm-search {
@@ -245,6 +244,7 @@
 }
 /* Profile */
 .crm-profile {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -257,4 +257,41 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
+}
+/* Profile arrow rotation */
+.profile-arrow {
+  transition: transform 0.2s;
+}
+
+.profile-arrow.open {
+  transform: rotate(180deg); /* Up -> Down on click */
+}
+
+/* Profile dropdown */
+.crm-profile-dropdown {
+  position: absolute;
+  top: 100%;
+   
+  right: 0;
+  background: #fff;
+  color: #333;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 100;
+}
+
+.crm-profile-dropdown a {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.crm-profile-dropdown a:hover {
+  background: #f3f4f6;
 }
