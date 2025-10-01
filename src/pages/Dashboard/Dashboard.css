@@ -157,11 +157,13 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-  height: 475px;  /* 🔥 fills equal height */
+  height: 575px;  /* keep fixed height for sidebox */
+  margin-top: 10px; /* 🔥 ensures 10px gap above it */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* or center */
+  justify-content: flex-start;
 }
+
 
 
 .crm-sidebox h3 {
@@ -182,7 +184,7 @@
 
 /* Sections stats */
 .crm-section {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .crm-overview {
@@ -254,12 +256,25 @@
   color: #444;
   cursor: pointer;
 }
+.crm-box:last-child {
+  min-height: 200px; /* 🔥 match the sidebox height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Leads Collected box */
+.crm-box.leads-collected {
+  margin-top: -70px;   /* 🔥 pulls it upward */
+  min-height: 200px;    /* optional: ensure enough height */
+}
+
  .crm-chart {
   background: #fff;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-  height: 100%;  /* 🔥 fills height equal to sidebox */
+  height: 100%;  
+   min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -269,7 +284,7 @@
   grid-template-columns: 3fr 1fr; /* left bigger, right smaller */
   gap: 20px;
   margin-bottom: 30px;
-  align-items: stretch; /* 🔥 same height */
+  /* align-items: stretch; */
 }
 
 .crm-box {
@@ -288,7 +303,84 @@
   margin-bottom: 12px;
   color: #333;
 }
+.center-title {
+  text-align: center;
+}
 
+/* KPI section under left column */
+/* KPI section styled like screenshot */
+.crm-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: -20px;
+  
+}
+
+.crm-kpis .crm-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  min-height: 120px; /* uniform size like screenshot */
+}
+
+.crm-kpis h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.crm-value {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+.crm-change {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.crm-percent {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.crm-percent.positive {
+  color: #38a169; /* green */
+}
+
+.crm-percent.negative {
+  color: #e53e3e; /* red */
+}
+
+.crm-change small {
+  font-size: 12px;
+  color: #777;
+}
+
+@media (max-width: 992px) {
+  .crm-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .crm-kpis {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 /* Updates */

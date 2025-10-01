@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BarChart2, Clock } from "lucide-react";
+import { FiArrowUp, FiArrowDown } from "react-icons/fi";
 import {
   LineChart,
   Line,
@@ -132,9 +133,8 @@ export default function Dashboard() {
       </div>
     </section>
 
-    {/* Stats*/}
+    {/* Stats */}
     <section className="crm-section">
-      
       <div className="crm-overview">
         <div className="crm-overview-card">
           <h5>Total Sales</h5>
@@ -153,15 +153,52 @@ export default function Dashboard() {
           <p>0</p>
         </div>
       </div>
-       <div className="account-overview-headerbar">
-      <h3>Account Overview</h3>
-      <div className="account-overview-date">
-        <input type="date" />
-        <span> - </span>
-        <input type="date" />
+
+      <div className="account-overview-headerbar">
+        <h3>Account Overview</h3>
+        <div className="account-overview-date">
+          <input type="date" />
+          <span> - </span>
+          <input type="date" />
+        </div>
       </div>
-    </div>
     </section>
+    {/* KPI Section (just like screenshot) */}
+<section className="crm-kpis">
+  <div className="crm-card">
+    <h4>Total Sales</h4>
+    <p className="crm-value">₹0.00</p>
+    <div className="crm-change">
+      <span className="crm-percent negative">
+        <FiArrowDown /> 0.0%
+      </span>
+      <small>From last period</small>
+    </div>
+  </div>
+
+  <div className="crm-card">
+    <h4>Avg. Sale Value</h4>
+    <p className="crm-value">₹0.00</p>
+    <div className="crm-change">
+      <span className="crm-percent positive">
+        <FiArrowUp /> 0.0%
+      </span>
+      <small>From last period</small>
+    </div>
+  </div>
+
+  <div className="crm-card">
+    <h4>Total Deals</h4>
+    <p className="crm-value">3</p>
+    <div className="crm-change">
+      <span className="crm-percent negative">
+        <FiArrowDown /> 0.0%
+      </span>
+      <small>From last period</small>
+    </div>
+  </div>
+</section>
+
     
   </div>
 
@@ -171,15 +208,12 @@ export default function Dashboard() {
       <h3>Reminders</h3>
       <p>No Appointments Found.</p>
     </aside>
-
-</div>
-
-
+  </div>
 </div>
 
 
 {/* Revenue + Leads Section */}
-<section className="crm-dashboardr-layout">
+<section className="crm-dashboard-layout">
   {/* Left column → Revenue */}
   <div className="crm-box">
     <h3>Revenue</h3>
@@ -196,27 +230,29 @@ export default function Dashboard() {
   </div>
 
   {/* Right column → Leads Collected */}
-  <div className="crm-box">
-    <h3>Leads Collected</h3>
-    <ResponsiveContainer width="100%" height={250}>
-      <PieChart>
-        <Pie
-          data={leadsData}
-          cx="50%"
-          cy="50%"
-          outerRadius={90}
-          dataKey="value"
-          label
-        >
-          {leadsData.map((entry, index) => (
-            <Cell key={index} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-        <Tooltip />
-        <Legend />
-      </PieChart>
-    </ResponsiveContainer>
-  </div>
+{/* Right column → Leads Collected */}
+<div className="crm-box leads-collected">
+  <h3 className="center-title">Leads Collected</h3>
+  <ResponsiveContainer width="100%" height={250}>
+    <PieChart>
+      <Pie
+        data={leadsData}
+        cx="50%"
+        cy="50%"
+        outerRadius={90}
+        dataKey="value"
+        label
+      >
+        {leadsData.map((entry, index) => (
+          <Cell key={index} fill={COLORS[index % COLORS.length]} />
+        ))}
+      </Pie>
+      <Tooltip />
+      <Legend />
+    </PieChart>
+  </ResponsiveContainer>
+</div>
+
 </section>
 
 
