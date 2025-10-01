@@ -1,14 +1,75 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BarChart2 } from "lucide-react";
-import "../pages/Dashboard.css";
+import { Clock } from "lucide-react";
+import "./Dashboard.css";
+
 
 export default function Dashboard() {
+  const [messages, setMessages] = useState([]);
+  const [currentMessage, setCurrentMessage] = useState("");
+  const [messageIndex, setMessageIndex] = useState(0);
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    let greeting = "";
+    if (hour < 12) greeting = "Good Morning";
+    else if (hour < 17) greeting = "Good Afternoon";
+    else greeting = "Good Evening";
+
+    setMessages([
+      `👋 ${greeting}`,
+      "0 Reminders",
+      "0 Scheduled Meetings",
+      "0 New Leads",
+    ]);
+  }, []);
+
+  useEffect(() => {
+    if (messages.length === 0) return;
+
+    let i = 0;
+    let displayText = "";
+    const text = messages[messageIndex];
+
+    const interval = setInterval(() => {
+      displayText = text.slice(0, i + 1);
+      setCurrentMessage(displayText);
+      i++;
+      if (i === text.length) {
+        clearInterval(interval);
+        setTimeout(() => {
+          setMessageIndex((prev) => (prev + 1) % messages.length);
+        }, 2000);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [messageIndex, messages]);
+
+  // Optional: dynamically get current time
+  const now = new Date().toLocaleTimeString();
+
+
   return (
     <div className="crm-dashboard">
-      {/* Greeting */}
-      <section className="crm-greeting">
-        <h2>Hi Converro 👋 Good Afternoon</h2>
-      </section>
+  <section className="crm-greeting">
+    <div className="greeting-wrapper">
+      <h2>
+        <span className="fixed-text">Hi Converro&nbsp;</span>
+        <span className="typed-text">{currentMessage}</span>
+      </h2>
+
+      <button className="checkin-btn">
+        <div className="checkin-text">
+          <span>Check In</span>
+          <span className="checkin-time">{now}</span>
+        </div>
+        <Clock className="clock-icon" />
+      </button>
+    </div>
+  </section>
+
+
 
       {/* Top stats cards */}
       <section className="crm-cards">

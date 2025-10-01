@@ -6,20 +6,109 @@
   min-height: 100vh;
 }
 
-/* Greeting */
+.crm-greeting {
+  margin-bottom: 20px;
+}
+
+.greeting-wrapper {
+  display: flex;
+  align-items: center;       /* vertically align text & button */
+  justify-content: space-between; /* greeting left, button right */
+  gap: 20px;                 /* space between text and button */
+}
+
 .crm-greeting h2 {
   font-size: 22px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin: 0;
+  display: flex;
+  align-items: baseline;     /* aligns fixed-text & typed-text */
 }
+
+.fixed-text {
+  font-weight: 700;
+  color: #222;
+}
+
+.typed-text {
+  color: #007bff;
+  border-right: 2px solid #007bff;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.checkin-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #e53e3e;
+  color: #fff;
+  border: none;
+  
+  padding: 15px 14px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.checkin-btn:hover {
+  background: #c53030;
+}
+
+.checkin-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* text left-aligned inside button */
+}
+
+.checkin-time {
+  font-size: 15px;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+.clock-icon {
+  width: 30px;          /* slightly bigger to fit circle */
+  height: 30px;
+  padding: 2px;          /* inner spacing */
+  border-radius: 50%;    /* makes circle */
+  background: #fff;      /* white circle */
+  color: #e53e3e;        /* red clock inside circle */
+  box-sizing: content-box;
+}
+
 
 /* Top cards */
 .crm-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr); 
   gap: 16px;
   margin-bottom: 30px;
 }
+
+@media (max-width: 992px) {
+  .crm-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .crm-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .crm-card {
   background: #fff;
