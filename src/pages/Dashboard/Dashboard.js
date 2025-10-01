@@ -71,52 +71,82 @@ export default function Dashboard() {
 
 
 
-      {/* Top stats cards */}
-      <section className="crm-cards">
-        <div className="crm-card purple">
-          <h4>Today Leads</h4>
+     <div className="crm-dashboard-layout">
+  {/* Left Column */}
+  <div className="crm-left">
+    {/* Top stats cards */}
+    <section className="crm-cards">
+      <div className="crm-card purple">
+        <h4>Today Leads</h4>
+        <p>0</p>
+      </div>
+      <div className="crm-card blue">
+        <h4>Total Leads</h4>
+        <p>1,039</p>
+      </div>
+      <div className="crm-card green">
+        <h4>Deals</h4>
+        <p>1</p>
+      </div>
+      <div className="crm-card teal">
+        <h4>Clients</h4>
+        <p>1</p>
+      </div>
+      <div className="crm-card orange">
+        <h4>Follow-up Leads</h4>
+        <p>15</p>
+      </div>
+      <div className="crm-card pink">
+        <h4>Meeting Scheduled</h4>
+        <p>5</p>
+      </div>
+    </section>
+
+    {/* Stats*/}
+    <section className="crm-section">
+      
+      <div className="crm-overview">
+        <div className="crm-overview-card">
+          <h5>Total Sales</h5>
+          <p>₹0.00</p>
+        </div>
+        <div className="crm-overview-card">
+          <h5>Avg. Sale Value</h5>
+          <p>₹0.00</p>
+        </div>
+        <div className="crm-overview-card">
+          <h5>Total Deals</h5>
+          <p>3</p>
+        </div>
+        <div className="crm-overview-card">
+          <h5>Admin</h5>
           <p>0</p>
         </div>
-        <div className="crm-card blue">
-          <h4>Total Leads</h4>
-          <p>1,039</p>
-        </div>
-        <div className="crm-card green">
-          <h4>Deals</h4>
-          <p>1</p>
-        </div>
-        <div className="crm-card teal">
-          <h4>Clients</h4>
-          <p>1</p>
-        </div>
-        <div className="crm-card orange">
-          <h4>Follow-up Leads</h4>
-          <p>15</p>
-        </div>
-        <div className="crm-card pink">
-          <h4>Meeting Scheduled</h4>
-          <p>5</p>
-        </div>
-      </section>
+      </div>
+       <div className="account-overview-headerbar">
+      <h3>Account Overview</h3>
+      <div className="account-overview-date">
+        <input type="date" />
+        <span> - </span>
+        <input type="date" />
+      </div>
+    </div>
+    </section>
+    
+  </div>
 
-      {/* Account overview */}
-      <section className="crm-section">
-        <h3>Account Overview</h3>
-        <div className="crm-overview">
-          <div className="crm-overview-card">
-            <h5>Total Sales</h5>
-            <p>₹0.00</p>
-          </div>
-          <div className="crm-overview-card">
-            <h5>Avg. Sale Value</h5>
-            <p>₹0.00</p>
-          </div>
-          <div className="crm-overview-card">
-            <h5>Total Deals</h5>
-            <p>3</p>
-          </div>
-        </div>
-      </section>
+  {/* Right Column - Side Box */}
+  <div className="crm-right">
+    <aside className="crm-sidebox">
+      <h3>Reminders</h3>
+      <p>No Appointments Found.</p>
+    </aside>
+
+</div>
+
+
+</div>
+
 
       {/* Revenue Graph */}
       <section className="crm-section">

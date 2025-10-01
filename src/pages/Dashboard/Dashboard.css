@@ -52,7 +52,6 @@
   background: #e53e3e;
   color: #fff;
   border: none;
-  
   padding: 15px 14px;
   border-radius: 50px;
   font-size: 18px;
@@ -90,10 +89,18 @@
 
 
 /* Top cards */
+.crm-dashboard-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* left content + sidebox */
+  gap: 20px;
+  align-items: stretch; /* 🔥 makes both columns equal height */
+}
+
+
 .crm-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 30px;
 }
 
@@ -112,7 +119,7 @@
 
 .crm-card {
   background: #fff;
-  padding: 15px;
+  padding: 12px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   text-align: center;
@@ -136,8 +143,44 @@
 .crm-card.teal { border-left: 4px solid #319795; }
 .crm-card.orange { border-left: 4px solid #dd6b20; }
 .crm-card.pink { border-left: 4px solid #d53f8c; }
+ /* Sidebox styles */
+.crm-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%; /* 🔥 force equal height with sidebox */
+}
 
-/* Sections */
+
+.crm-sidebox {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  height: 475px;  /* 🔥 fills equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* or center */
+}
+
+
+.crm-sidebox h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crm-sidebox p {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+/* Sections stats */
 .crm-section {
   margin-bottom: 30px;
 }
@@ -150,7 +193,7 @@
 .crm-overview-card {
   flex: 1;
   background: #fff;
-  padding: 15px;
+  padding: 8px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
@@ -180,6 +223,38 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
+.account-overview-headerbar {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-overview-headerbar h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.account-overview-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.account-overview-date input[type="date"] {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+}
+
 
 /* Updates */
 .crm-update {
