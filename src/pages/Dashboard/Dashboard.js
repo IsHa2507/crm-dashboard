@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { BarChart2 } from "lucide-react";
-import { Clock } from "lucide-react";
+import { BarChart2, Clock } from "lucide-react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+} from "recharts";
 import "./Dashboard.css";
 
 
@@ -8,6 +20,24 @@ export default function Dashboard() {
   const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageIndex, setMessageIndex] = useState(0);
+  
+   const revenueData = [
+    { month: "Nov 2024", sales: 0 },
+    { month: "Dec 2024", sales: 200 },
+    { month: "Jan 2025", sales: 400 },
+    { month: "Feb 2025", sales: 350 },
+    { month: "Mar 2025", sales: 600 },
+    { month: "Apr 2025", sales: 900 },
+    { month: "May 2025", sales: 750 },
+  ];
+
+  // Fake Leads Data
+  const leadsData = [
+    { name: "Untouched", value: 5 },
+    { name: "Follow-up Required", value: 3 },
+    { name: "Not Answered", value: 2 },
+  ];
+  const COLORS = ["#FF6384", "#36A2EB", "#4BC0C0"];
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -148,30 +178,47 @@ export default function Dashboard() {
 </div>
 
 
-      {/* Revenue Graph */}
-      <section className="crm-section">
-        <h3>Revenue</h3>
-        <div className="crm-chart-placeholder">
-          <BarChart2 size={40} />
-          <p>Graph Placeholder</p>
-        </div>
-      </section>
+{/* Revenue + Leads Section */}
+<section className="crm-dashboardr-layout">
+  {/* Left column → Revenue */}
+  <div className="crm-box">
+    <h3>Revenue</h3>
+    <ResponsiveContainer width="100%" height={250}>
+      <LineChart data={revenueData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="month" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="sales" stroke="#38a169" strokeWidth={3} />
+      </LineChart>
+    </ResponsiveContainer>
+  </div>
 
-      {/* Reminders + Leads Collected */}
-      <section className="crm-grid">
-        <div className="crm-reminder">
-          <h3>Reminders</h3>
-          <p>No Appointments Found</p>
-        </div>
-        <div className="crm-leads">
-          <h3>Leads Collected</h3>
-          <ul>
-            <li>Untouched: 0</li>
-            <li>Follow-up Required: 0</li>
-            <li>Not Answered: 0</li>
-          </ul>
-        </div>
-      </section>
+  {/* Right column → Leads Collected */}
+  <div className="crm-box">
+    <h3>Leads Collected</h3>
+    <ResponsiveContainer width="100%" height={250}>
+      <PieChart>
+        <Pie
+          data={leadsData}
+          cx="50%"
+          cy="50%"
+          outerRadius={90}
+          dataKey="value"
+          label
+        >
+          {leadsData.map((entry, index) => (
+            <Cell key={index} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Tooltip />
+        <Legend />
+      </PieChart>
+    </ResponsiveContainer>
+  </div>
+</section>
+
 
       {/* New Updates */}
       <section className="crm-section">
