@@ -34,7 +34,7 @@ export default function Dashboard() {
 
   // Fake Leads Data
   const leadsData = [
-    { name: "Untouched", value: 5 },
+    { name: "Untouched", value: 3 },
     { name: "Follow-up Required", value: 3 },
     { name: "Not Answered", value: 2 },
   ];
