@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import Topbar from "./components/layout/Topbar";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Login from "./pages/Auth/Login";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
        <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </Router>
   );
